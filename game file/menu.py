@@ -3,7 +3,6 @@ import pygame.image
 from pygame import *
 from basegame import run
 
-
 init()
 
 size = (720, 800)
@@ -13,6 +12,9 @@ pygame.display.set_caption('Ship Rescue')
 font_name = pygame.font.SysFont('Times New Roman', 66, bold=True)
 fon_image = pygame.image.load('../image/menu1.jpg')
 font_menu = font.SysFont('Times New Roman', 50)
+bg_sound = pygame.mixer.Sound('../sound/soundtrack.mp3')
+bg_sound.set_volume(0.1)
+bg_sound.play(-1)
 
 
 class Menu:
