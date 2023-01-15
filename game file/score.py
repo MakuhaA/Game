@@ -9,7 +9,7 @@ class Score():
         self.screen_rect = screen.get_rect()
         self.stat = stat
         self.text_color = (225, 225, 225)
-        self.font = pygame.font.SysFont('Times New Roman', 26, bold=True)
+        self.font = pygame.font.SysFont('../type/type2.otf', 26, bold=True)
         self.res()
         self.high_score()
         self.image_hearts()

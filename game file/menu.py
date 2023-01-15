@@ -9,9 +9,9 @@ size = (720, 800)
 
 screen = display.set_mode(size)
 pygame.display.set_caption('Ship Rescue')
-font_name = pygame.font.SysFont('Times New Roman', 66, bold=True)
+font_name = pygame.font.Font('../type/type2.otf', 66)
 fon_image = pygame.image.load('../image/menu1.jpg')
-font_menu = font.SysFont('Times New Roman', 50)
+font_menu = font.SysFont('../type/type2.otf', 50)
 bg_sound = pygame.mixer.Sound('../sound/soundtrack.mp3')
 bg_sound.set_volume(0.1)
 bg_sound.play(-1)
@@ -39,9 +39,9 @@ class Menu:
         screen.blit(render_name, (30, 20))
         for i, option in enumerate(self.option_surfaces):
             option_rect = option.get_rect()
-            option_rect.topleft = (x - 10, y + 10 + i * option_padding)
+            option_rect.topleft = (x - 40, y + 30 + i * option_padding)
             if i == self.current_option_index:
-                draw.rect(surf, (0, 100, 0), option_rect)
+                draw.rect(surf, (0, 110, 0), option_rect)
             surf.blit(option, option_rect)
 
 
