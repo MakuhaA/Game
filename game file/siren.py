@@ -16,5 +16,5 @@ class Siren(pygame.sprite.Sprite):
         self.screen.blit(self.image, self.rect)
 
     def update(self):
-        self.y += 1
+        self.y += 0.1
         self.rect.y = self.y
