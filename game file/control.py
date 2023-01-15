@@ -72,7 +72,7 @@ def kill(stat, screen, score, gun, many_siren, bullets):
     else:
         backround = pygame.image.load('../image/ship1.jpg')
         screen.blit(backround, (0, 0))
-        font_end = pygame.font.SysFont('../type/type2.otf', 66, bold=True)
+        font_end = pygame.font.SysFont('../type/type2.otf', 90, bold=True)
         render_end = font_end.render('GAME OVER', True, pygame.Color('violet'))
         screen.blit(render_end, (720 // 2 - 200, 720 // 3))
         pygame.display.flip()
