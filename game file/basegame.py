@@ -10,7 +10,7 @@ def run():
     pygame.init()
     screen = pygame.display.set_mode((720, 800))
     gun = Gun(screen)
-    pygame.display.set_caption('Sea')
+    pygame.display.set_caption('Ship Rescue')
     #overlay = (0, 0, 0)
     backround = pygame.image.load('../image/ship1.jpg')
     # overlay = pygame.image.load('![](../image/ship.jpg)')

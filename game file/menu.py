@@ -9,6 +9,8 @@ init()
 size = (720, 800)
 
 screen = display.set_mode(size)
+pygame.display.set_caption('Ship Rescue')
+font_name = pygame.font.SysFont('Times New Roman', 66, bold=True)
 fon_image = pygame.image.load('../image/menu1.jpg')
 font_menu = font.SysFont('Times New Roman', 50)
 
@@ -31,9 +33,11 @@ class Menu:
         self.callbacks[self.current_option_index]()
 
     def draw(self, surf, x, y, option_padding):
+        render_name = font_name.render('Ship Rescue', True, pygame.Color(37, 9, 104))
+        screen.blit(render_name, (30, 20))
         for i, option in enumerate(self.option_surfaces):
             option_rect = option.get_rect()
-            option_rect.topleft = (x, y + i * option_padding)
+            option_rect.topleft = (x - 10, y + 10 + i * option_padding)
             if i == self.current_option_index:
                 draw.rect(surf, (0, 100, 0), option_rect)
             surf.blit(option, option_rect)
@@ -57,6 +61,6 @@ while running:
                 menu.select()
 
     screen.blit(fon_image, (0, 0))
-    menu.draw(screen, 100, 100, 75)
+    menu.draw(screen, 90, 90, 75)
     display.flip()
 quit()
