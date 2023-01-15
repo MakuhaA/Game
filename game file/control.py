@@ -6,6 +6,7 @@ import time
 
 
 def events(screen, gun, bullets):
+    # обработка клавиш
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             sys.exit()
@@ -25,6 +26,7 @@ def events(screen, gun, bullets):
 
 
 def update(backround, screen, stat, score, gun, many_siren, bullets):
+    # обновление экрана
     screen.blit(backround, (0, 0))
     # screen.fill(overlay)
     score.show_res()
@@ -36,6 +38,7 @@ def update(backround, screen, stat, score, gun, many_siren, bullets):
 
 
 def update_bullet(screen, stat, score, many_siren, bullets):
+    # обновление позиции пуль
     bullets.update()
     for bullet in bullets.copy():
         if bullet.rect.bottom <= 0:
@@ -54,6 +57,7 @@ def update_bullet(screen, stat, score, many_siren, bullets):
 
 
 def update_siren(stat, screen, score, gun, many_siren, bullets):
+    # обновляет позицию сирен
     many_siren.update()
     if pygame.sprite.spritecollideany(gun, many_siren):
         kill(stat, screen, score, gun, many_siren, bullets)
@@ -61,6 +65,7 @@ def update_siren(stat, screen, score, gun, many_siren, bullets):
 
 
 def kill(stat, screen, score, gun, many_siren, bullets):
+    # столкновение пушки и армии
     if stat.live > 0:
         stat.live -= 1
         score.image_hearts()
@@ -82,6 +87,7 @@ def kill(stat, screen, score, gun, many_siren, bullets):
 
 
 def siren_check(stat, screen, score, gun, many_siren, bullets):
+    # проверка, добралась ли армия до края экрана
     screen_rect = screen.get_rect()
     for siren in many_siren.sprites():
         if siren.rect.bottom >= screen_rect.bottom:
@@ -90,6 +96,7 @@ def siren_check(stat, screen, score, gun, many_siren, bullets):
 
 
 def creat_army(screen, many_siren):
+    # создание армии сирен
     siren = Siren(screen)
     siren_width = siren.rect.width
     n_siren_x = int((750 - 2 * siren_width) / siren_width)
@@ -106,6 +113,7 @@ def creat_army(screen, many_siren):
 
 
 def check_score(stat, score):
+    # проверка новых рекордов
     if stat.score > stat.score_high:
         stat.score_high = stat.score
         score.high_score()

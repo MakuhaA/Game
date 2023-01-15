@@ -4,6 +4,7 @@ from pygame.sprite import Group
 
 
 class Score():
+    # вывод игровой информации
     def __init__(self, screen, stat):
         self.screen = screen
         self.screen_rect = screen.get_rect()
@@ -15,12 +16,14 @@ class Score():
         self.image_hearts()
 
     def res(self):
+        # преобразование текста счета в графическое изображение
         self.res_score = self.font.render(str(self.stat.score), True, self.text_color)
         self.score_rect = self.res_score.get_rect()
         self.score_rect.right = self.screen_rect.right - 50
         self.score_rect.top = 20
 
     def high_score(self):
+        # преобразование рекорда в графическое изображение
         self.im_high_score = self.font.render(
             str(self.stat.score_high), True, self.text_color)
         self.high_score_rect = self.im_high_score.get_rect()
@@ -28,6 +31,7 @@ class Score():
         self.high_score_rect.top = self.screen_rect.top + 20
 
     def image_hearts(self):
+        # количество жизней
         self.hearts = Group()
         for heartn in range(self.stat.live):
             heart = Gun(self.screen)
@@ -36,6 +40,7 @@ class Score():
             self.hearts.add(heart)
 
     def show_res(self):
+        # вывод счета на экран
         self.screen.blit(self.res_score, self.score_rect)
         self.screen.blit(self.im_high_score, self.high_score_rect)
         self.hearts.draw(self.screen)

@@ -3,6 +3,7 @@ import pygame
 
 class Bullet(pygame.sprite.Sprite):
     def __init__(self, screen, gun):
+        # создаем пулю
         super(Bullet, self).__init__()
         self.screen = screen
         self.image = pygame.image.load('../image/bullet.png')
@@ -19,4 +20,5 @@ class Bullet(pygame.sprite.Sprite):
         self.rect.y = self.y
 
     def draw_bullet(self):
+        # рисуем пулю на экране
         self.screen.blit(self.image, self.rect)
