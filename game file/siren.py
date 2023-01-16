@@ -7,7 +7,7 @@ class Siren(pygame.sprite.Sprite):
         # инициализируем и задаем начальную позицию
         super(Siren, self).__init__()
         self.screen = screen
-        self.image = pygame.image.load('../image/siren2.png')
+        self.image = pygame.image.load('../image/siren2(2).png')
         self.rect = self.image.get_rect()
         self.rect.x = self.rect.width
         self.rect.y = self.rect.height
